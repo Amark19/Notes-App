@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "839789642688",
+    "project_id": "notes-app-6d792",
+    "storage_bucket": "notes-app-6d792.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:839789642688:android:26af499c2c18c74ee4fe25",
+        "android_client_info": {
+          "package_name": "com.apprendiz.notesapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "839789642688-t8o3c3n127j3delmi77452fki3pbtada.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7FE74zUPYwSCKFOUVvID9QsBOjZgB30g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "839789642688-t8o3c3n127j3delmi77452fki3pbtada.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
