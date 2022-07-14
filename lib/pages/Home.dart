@@ -10,6 +10,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final ref = FirebaseFirestore.instance.collection("Notes");
+  String text = "";
 
   @override
   Widget build(BuildContext context) {
@@ -36,20 +37,28 @@ class _HomeState extends State<Home> {
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
                       itemCount: snapshot.hasData ? snapshot.data!.docs.length : 0,
                       itemBuilder: (context, index) {
+                        if (snapshot.data!.docs[index]['note_desc'].length > 75) {
+                          text = snapshot.data!.docs[index]['note_desc'].substring(0, 75) + ".....";
+                        } else {
+                          text = snapshot.data!.docs[index]['note_desc'];
+                        }
                         return GestureDetector(
                           onTap: () {
                             Navigator.push(context, MaterialPageRoute(builder: (_) => Editnote(doctoedit: snapshot.data!.docs[index])));
                           },
                           child: Container(
+                              decoration: BoxDecoration(color: Colors.grey[800], borderRadius: BorderRadius.all(Radius.circular(20))),
                               margin: EdgeInsets.all(10),
                               height: 150,
-                              color: Colors.grey[800],
-                              child: Column(
-                                children: [
-                                  Text(snapshot.data!.docs[index]['note_title']),
-                                  SizedBox(height: 5),
-                                  Text(snapshot.data!.docs[index]['note_desc']),
-                                ],
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  children: [
+                                    Text(snapshot.data!.docs[index]['note_title'], style: TextStyle(fontSize: 18.0, color: Colors.amber[200])),
+                                    SizedBox(height: 10),
+                                    Text(text),
+                                  ],
+                                ),
                               )),
                         );
                       }));
